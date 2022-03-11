@@ -1,0 +1,23 @@
+Description: Honor the environment variable CFLAGS and CXXFLAGS
+ This is required in Debian, such that hardening flags like
+ -fstack-protector-strong -Wformat -Werror=format-security are used in
+ the compilation of C++ files.
+Author: Rafael Laboissière <rafael@debian.org>
+Forwarded: no
+Last-Update: 2021-11-15
+
+--- octave-octproj-2.0.1.orig/src/Makefile
++++ octave-octproj-2.0.1/src/Makefile
+@@ -6,10 +6,10 @@ FLAGSCOMW=-Wall -Wextra -Wshadow -Wcast-
+ #Common optimization flags for C and C++
+ FLAGSCOMO=-O2 -funroll-loops -fno-common -fshort-enums
+ #Flags for C
+-CFLAGS=-std=c99 -pedantic $(FLAGSCOMW) -Wconversion -Wmissing-prototypes
++CFLAGS+=-std=c99 -pedantic $(FLAGSCOMW) -Wconversion -Wmissing-prototypes
+ CFLAGS+=-Wstrict-prototypes -Wnested-externs $(FLAGSCOMO)
+ #Flags for C++
+-CXXFLAGS=$(FLAGSCOMW) $(FLAGSCOMO)
++CXXFLAGS+=$(FLAGSCOMW) $(FLAGSCOMO)
+ #Flags for the linker
+ LDFLAGS=-lproj
+ #Export flags for compilers and linker

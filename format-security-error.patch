@@ -1,0 +1,116 @@
+Description: Use string literal in call to error() function
+ Compilation errors are triggered when option -Werror=format-security
+ is used.
+Author: Rafael Laboissière <rafael@debian.org>
+Forwarded: no
+Last-Update: 2021-11-15
+
+--- octave-octproj-2.0.1.orig/src/_op_fwd.cc
++++ octave-octproj-2.0.1/src/_op_fwd.cc
+@@ -74,7 +74,7 @@ DEFUN_DLD(_op_fwd,args,,HELPTEXT)
+                 "Incorrect number of input arguments\n\t"
+                 "See help _op_fwd");
+         //error message
+-        error(errorText);
++        error("%s", errorText);
+     }
+     else
+     {
+@@ -120,7 +120,7 @@ DEFUN_DLD(_op_fwd,args,,HELPTEXT)
+             if(projectionError>-1)
+             {
+                 //warning message
+-                warning(errorText);
++                warning("%s", errorText);
+                 //positions of projection errors
+                 for(i=0;i<nElem;i++)
+                 {
+@@ -136,7 +136,7 @@ DEFUN_DLD(_op_fwd,args,,HELPTEXT)
+             else
+             {
+                 //error message
+-                error(errorText);
++                error("%s", errorText);
+                 //exit
+                 return outputList;
+             }
+--- octave-octproj-2.0.1.orig/src/_op_inv.cc
++++ octave-octproj-2.0.1/src/_op_inv.cc
+@@ -74,7 +74,7 @@ DEFUN_DLD(_op_inv,args,,HELPTEXT)
+                 "Incorrect number of input arguments\n\t"
+                 "See help _op_inv");
+         //error message
+-        error(errorText);
++        error("%s", errorText);
+     }
+     else
+     {
+@@ -120,7 +120,7 @@ DEFUN_DLD(_op_inv,args,,HELPTEXT)
+             if(projectionError>-1)
+             {
+                 //warning message
+-                warning(errorText);
++                warning("%s", errorText);
+                 //positions of projection errors
+                 for(i=0;i<nElem;i++)
+                 {
+@@ -136,7 +136,7 @@ DEFUN_DLD(_op_inv,args,,HELPTEXT)
+             else
+             {
+                 //error message
+-                error(errorText);
++                error("%s", errorText);
+                 //exit
+                 return outputList;
+             }
+--- octave-octproj-2.0.1.orig/src/_op_transform.cc
++++ octave-octproj-2.0.1/src/_op_transform.cc
+@@ -84,7 +84,7 @@ DEFUN_DLD(_op_transform,args,,HELPTEXT)
+                 "Incorrect number of input arguments\n\t"
+                 "See help _op_transform");
+         //error message
+-        error(errorText);
++        error("%s", errorText);
+     }
+     else
+     {
+@@ -156,7 +156,7 @@ DEFUN_DLD(_op_transform,args,,HELPTEXT)
+             if(projectionError>-1)
+             {
+                 //warning message
+-                warning(errorText);
++                warning("%s", errorText);
+                 //positions of projection errors
+                 for(i=0;i<nElem;i++)
+                 {
+@@ -172,7 +172,7 @@ DEFUN_DLD(_op_transform,args,,HELPTEXT)
+             else
+             {
+                 //error message
+-                error(errorText);
++                error("%s", errorText);
+                 //exit
+                 return outputList;
+             }
+--- octave-octproj-2.0.1.orig/src/_op_geod2geoc.cc
++++ octave-octproj-2.0.1/src/_op_geod2geoc.cc
+@@ -69,7 +69,7 @@ DEFUN_DLD(_op_geod2geoc,args,,HELPTEXT)
+                 "Incorrect number of input arguments\n\t"
+                 "See help _op_geod2geoc");
+         //error message
+-        error(errorText);
++        error("%s", errorText);
+     }
+     else
+     {
+--- octave-octproj-2.0.1.orig/src/_op_geoc2geod.cc
++++ octave-octproj-2.0.1/src/_op_geoc2geod.cc
+@@ -69,7 +69,7 @@ DEFUN_DLD(_op_geoc2geod,args,,HELPTEXT)
+                 "Incorrect number of input arguments\n\t"
+                 "See help _op_geoc2geod");
+         //error message
+-        error(errorText);
++        error("%s", errorText);
+     }
+     else
+     {

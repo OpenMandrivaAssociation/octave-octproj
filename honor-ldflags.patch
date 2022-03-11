@@ -1,0 +1,11 @@
+--- origsrc/octproj-2.0.1/src/Makefile	2022-01-05 10:28:30.918452600 +0100
++++ octproj-2.0.1/src/Makefile	2022-01-05 10:29:21.765010600 +0100
+@@ -11,7 +11,7 @@ CFLAGS+=-Wstrict-prototypes -Wnested-ext
+ #Flags for C++
+ CXXFLAGS+=$(FLAGSCOMW) $(FLAGSCOMO)
+ #Flags for the linker
+-LDFLAGS=-lproj
++LDFLAGS+=-lproj
+ #Export flags for compilers and linker
+ export CFLAGS CXXFLAGS
+ 
