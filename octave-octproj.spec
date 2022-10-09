@@ -4,7 +4,7 @@ Summary:	Use PROJ.4 library for cartographic projections transformations in Octa
 Name:		octave-%{octpkg}
 Version:	2.0.1
 Release:	1
-Source0:	http://downloads.sourceforge.net/octave/%{octpkg}-%{version}.tar.gz
+Source0:	https://downloads.sourceforge.net/octave/%{octpkg}-%{version}.tar.gz
 # https://savannah.gnu.org/bugs/index.php?61488
 Patch0:		honor-cflags-cxxflags.patch
 # https://savannah.gnu.org/bugs/index.php?61488
@@ -18,6 +18,7 @@ Group:		Sciences/Mathematics
 Url:		https://octave.sourceforge.io/%{octpkg}/
 
 BuildRequires:	octave-devel >= 3.0.0
+buildRequires:	pkgconfig(proj)
 
 Requires:	octave(api) = %{octave_api}
 
