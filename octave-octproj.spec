@@ -15,10 +15,10 @@ Patch2:		format-security-error.patch
 Patch3:		do-not-strip-debugging-symbols.patch
 License:	GPLv3+
 Group:		Sciences/Mathematics
-Url:		https://octave.sourceforge.io/%{octpkg}/
+Url:		https://packages.octave.org/%{octpkg}/
 
 BuildRequires:	octave-devel >= 3.0.0
-buildRequires:	pkgconfig(proj)
+BuildRequires:	pkgconfig(proj)
 
 Requires:	octave(api) = %{octave_api}
 
@@ -28,8 +28,6 @@ Requires(postun): octave
 %description
 This package allows to call functions of PROJ.4 library for  cartographic
 projections transformations.
-
-This package is part of external Octave-Forge collection.
 
 %files
 %license COPYING
