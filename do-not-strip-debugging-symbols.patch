@@ -9,8 +9,8 @@ Last-Update: 2018-12-30
 +++ octave-octproj-1.1.5/src/Makefile
 @@ -21,11 +21,11 @@ all: compile
  compile:
- 	$(MKOCTFILE) $(CFLAGS) -c projwrap.c -o projwrap.o
- 	$(MKOCTFILE) $(CFLAGS) -c geodgeoc.c -o geodgeoc.o
+ 	$(MKOCTFILE) -c projwrap.c -o projwrap.o
+ 	$(MKOCTFILE) -c geodgeoc.c -o geodgeoc.o
 -	$(MKOCTFILE) -s _op_fwd.cc projwrap.o $(LDFLAGS)
 -	$(MKOCTFILE) -s _op_inv.cc projwrap.o $(LDFLAGS)
 -	$(MKOCTFILE) -s _op_transform.cc projwrap.o $(LDFLAGS)

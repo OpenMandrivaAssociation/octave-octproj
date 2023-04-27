@@ -1,23 +1,18 @@
-%define octpkg octproj
+%global octpkg octproj
 
-Summary:	Use PROJ.4 library for cartographic projections transformations in Octave
-Name:		octave-%{octpkg}
-Version:	2.0.1
+Summary:	Use PROJ library for cartographic projections transformations in Octave
+Name:		octave-octproj
+Version:	3.0.2
 Release:	1
-Source0:	https://downloads.sourceforge.net/octave/%{octpkg}-%{version}.tar.gz
-# https://savannah.gnu.org/bugs/index.php?61488
-Patch0:		honor-cflags-cxxflags.patch
-# https://savannah.gnu.org/bugs/index.php?61488
-Patch1:		honor-ldflags.patch
-# https://savannah.gnu.org/bugs/index.php?61489
-Patch2:		format-security-error.patch
-# https://savannah.gnu.org/bugs/index.php?55344
-Patch3:		do-not-strip-debugging-symbols.patch
 License:	GPLv3+
 Group:		Sciences/Mathematics
-Url:		https://packages.octave.org/%{octpkg}/
+#Url:		https://packages.octave.org/octproj/
+Url:		https://bitbucket.org/jgpallero/octproj/src/master/
+Source0:	https://bitbucket.org/jgpallero/octproj/downloads/octproj-%{version}.tar.gz
+# https://savannah.gnu.org/bugs/index.php?55344
+Patch0:		do-not-strip-debugging-symbols.patch
 
-BuildRequires:	octave-devel >= 3.0.0
+BuildRequires:  octave-devel >= 3.0.0
 BuildRequires:	pkgconfig(proj)
 
 Requires:	octave(api) = %{octave_api}
@@ -26,24 +21,22 @@ Requires(post): octave
 Requires(postun): octave
 
 %description
-This package allows to call functions of PROJ.4 library for  cartographic
-projections transformations.
+This package allows to call functions of PROJ library for
+cartographic projections and CRS transformations.
 
 %files
 %license COPYING
 %doc NEWS
-%dir %{octpkglibdir}
-%{octpkglibdir}/*
 %dir %{octpkgdir}
 %{octpkgdir}/*
+%dir %{octpkglibdir}
+%{octpkglibdir}/*
+#{_metainfodir}/*.metainfo.xml
 
 #---------------------------------------------------------------------------
 
 %prep
 %autosetup -p1 -n %{octpkg}-%{version}
-
-# remove backup files
-#find . -name \*~ -delete
 
 %build
 %set_build_flags
