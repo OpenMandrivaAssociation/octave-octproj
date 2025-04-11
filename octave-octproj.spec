@@ -3,7 +3,7 @@
 Summary:	Use PROJ library for cartographic projections transformations in Octave
 Name:		octave-octproj
 Version:	3.0.2
-Release:	1
+Release:	2
 License:	GPLv3+
 Group:		Sciences/Mathematics
 #Url:		https://packages.octave.org/octproj/
