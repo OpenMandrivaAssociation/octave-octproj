@@ -2,8 +2,8 @@
 
 Summary:	Use PROJ library for cartographic projections transformations in Octave
 Name:		octave-octproj
-Version:	3.0.2
-Release:	2
+Version:	3.1.0
+Release:	1
 License:	GPLv3+
 Group:		Sciences/Mathematics
 #Url:		https://packages.octave.org/octproj/
@@ -36,7 +36,7 @@ cartographic projections and CRS transformations.
 #---------------------------------------------------------------------------
 
 %prep
-%autosetup -p1 -n %{octpkg}-%{version}
+%autosetup -p1 -n octproj-3.1.0
 
 %build
 %set_build_flags
